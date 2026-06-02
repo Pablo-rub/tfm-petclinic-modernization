@@ -65,4 +65,14 @@
         <!-- needed otherwise exceptions won't be logged anywhere -->
     </bean>
 
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+    <bean id="vetsServiceUrl" class="java.lang.String">
+        <constructor-arg value="${vets.service.url:http://localhost:8081}"/>
+    </bean>
+
 </beans>

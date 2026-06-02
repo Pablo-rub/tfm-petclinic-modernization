@@ -1,7 +1,15 @@
 services:
+  vets-service:
+    image: vets-service:local
+    ports:
+      - "8081:8081"
+
   petclinic:
-    build: .
+    image: petclinic-monolith:local
     ports:
       - "8080:8080"
     environment:
       - JAVA_OPTS=-Xmx512m
+      - vets.service.url=http://vets-service:8081
+    depends_on:
+      - vets-service
