@@ -27,18 +27,23 @@ spec:
           env:
             - name: JAVA_OPTS
               value: {{ .Values.env.javaOpts | quote }}
+          startupProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8081
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 15
           livenessProbe:
             httpGet:
               path: /actuator/health
               port: 8081
-            initialDelaySeconds: 30
             periodSeconds: 15
             failureThreshold: 3
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: 8081
-            initialDelaySeconds: 20
             periodSeconds: 10
             failureThreshold: 3
           resources:

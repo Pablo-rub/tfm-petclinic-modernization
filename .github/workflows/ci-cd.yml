@@ -84,6 +84,7 @@ jobs:
     needs: build-test
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    continue-on-error: true  # Tenant UNIR no permite Service Principals; se ejecuta manualmente
     outputs:
       image-tag: ${{ steps.meta.outputs.sha }}
     steps:
@@ -168,6 +169,7 @@ jobs:
     name: Deploy to AKS
     needs: push-acr
     runs-on: ubuntu-latest
+    continue-on-error: true  # Tenant UNIR no permite Service Principals; se ejecuta manualmente
     steps:
       - uses: actions/checkout@v4
 
