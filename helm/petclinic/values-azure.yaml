@@ -1,0 +1,7 @@
+image:
+  repository: petclinicacr.azurecr.io/petclinic
+
+ingress:
+  host: petclinic.azure.example.com
+  annotations:
+    kubernetes.io/ingress.class: nginx
