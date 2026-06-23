@@ -31,7 +31,7 @@ jobs:
           cache: maven
 
       - name: Build y test monolito
-        run: mvn verify -q -Dexclude=**/VetControllerTests.java
+        run: mvn verify -q -Dsurefire.excludes=**/VetControllerTests.java
 
       - name: Build y test vets-service
         run: mvn verify -q -f vets-service/pom.xml
