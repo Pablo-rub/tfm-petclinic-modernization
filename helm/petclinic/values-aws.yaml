@@ -3,6 +3,4 @@ image:
 
 ingress:
   host: petclinic.aws.example.com
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+  annotations: {}

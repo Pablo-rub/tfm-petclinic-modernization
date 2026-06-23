@@ -22,3 +22,6 @@ resources:
 
 env:
   javaOpts: "-Xmx256m"
+
+serviceMonitor:
+  enabled: true
