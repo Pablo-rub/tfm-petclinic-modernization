@@ -18,6 +18,8 @@ services:
       - JAVA_OPTS=-Xmx512m
       - vets.service.url=http://vets-service:8081
     depends_on:
+      db:
+        condition: service_healthy
       vets-service:
         condition: service_healthy
 
